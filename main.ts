@@ -554,36 +554,41 @@ function lead2(x: number, y: number, w: number, h: number): void {
   rect(x, y + h - 2, w, 2, NAVY);
 }
 
-// --- Lead 3: ASEAN summit table, three flags, three seated leaders. ---
+// --- Lead 3: ASEAN summit table, four Quad flags, three seated leaders. ---
 function lead3(x: number, y: number, w: number, h: number): void {
   // backdrop
   rect(x, y, w, 58, NAVY);
   rect(x, y + 58, w, h - 58, [216, 207, 186]);
-  // ASEAN emblem: gold ring + ten dots
-  ring(x + 118, y + 16, 11, 2, GOLD);
-  for (let i = 0; i < 10; i++) {
-    const a = (i / 10) * Math.PI * 2;
-    circle(x + 118 + Math.cos(a) * 6, y + 16 + Math.sin(a) * 6, 1, GOLD);
-  }
-  // flag poles
-  vline(x + 46, y + 8, 34, [200, 200, 200], 1);
-  vline(x + 160, y + 8, 34, [200, 200, 200], 1);
-  vline(x + 274, y + 8, 34, [200, 200, 200], 1);
+  // flag poles (four Quad members, evenly spaced)
+  vline(x + 37, y + 8, 34, [200, 200, 200], 1);
+  vline(x + 108, y + 8, 34, [200, 200, 200], 1);
+  vline(x + 178, y + 8, 34, [200, 200, 200], 1);
+  vline(x + 249, y + 8, 34, [200, 200, 200], 1);
   // USA flag: stripes + canton
-  for (let i = 0; i < 4; i++) rect(x + 48, y + 8 + i * 5, 34, 2, i % 2 === 0 ? RED : WHITE);
-  rect(x + 48, y + 8, 14, 10, [46, 68, 130]);
-  circle(x + 52, y + 11, 1, WHITE);
-  circle(x + 58, y + 15, 1, WHITE);
-  // China flag: red + gold stars
-  rect(x + 162, y + 8, 34, 20, RED);
-  circle(x + 168, y + 13, 2, GOLD);
-  circle(x + 176, y + 11, 1, GOLD);
-  circle(x + 179, y + 16, 1, GOLD);
-  circle(x + 176, y + 21, 1, GOLD);
-  // Russia flag: white / blue / red bands
-  rect(x + 240, y + 8, 34, 7, WHITE);
-  rect(x + 240, y + 15, 34, 6, [46, 90, 160]);
-  rect(x + 240, y + 21, 34, 7, RED);
+  for (let i = 0; i < 4; i++) rect(x + 39, y + 8 + i * 5, 34, 2, i % 2 === 0 ? RED : WHITE);
+  rect(x + 39, y + 8, 14, 10, [46, 68, 130]);
+  circle(x + 43, y + 11, 1, WHITE);
+  circle(x + 49, y + 15, 1, WHITE);
+  // India flag: saffron / white / green bands + navy chakra wheel
+  rect(x + 110, y + 8, 34, 7, [255, 153, 51]);
+  rect(x + 110, y + 15, 34, 6, WHITE);
+  rect(x + 110, y + 21, 34, 7, [19, 136, 8]);
+  ring(x + 127, y + 18, 3, 1, [0, 0, 128]);
+  // Japan flag: white field + red disc
+  rect(x + 180, y + 8, 34, 20, WHITE);
+  circle(x + 197, y + 18, 5, RED);
+  // Australia flag: blue field, Union Jack canton, big star + Southern Cross
+  rect(x + 251, y + 8, 34, 20, [0, 32, 91]);
+  rect(x + 251, y + 8, 17, 10, [0, 32, 91]);
+  rect(x + 251, y + 11, 17, 3, WHITE);
+  rect(x + 258, y + 8, 3, 10, WHITE);
+  rect(x + 251, y + 12, 17, 1, RED);
+  rect(x + 259, y + 8, 1, 10, RED);
+  circle(x + 258, y + 23, 2, WHITE);
+  circle(x + 275, y + 12, 1, WHITE);
+  circle(x + 281, y + 17, 1, WHITE);
+  circle(x + 275, y + 22, 1, WHITE);
+  circle(x + 269, y + 17, 1, WHITE);
   // seated leaders: heads, suits, ties
   const figs: [number, RGB][] = [
     [70, [31, 42, 68]],
@@ -643,8 +648,8 @@ const LEADS: Lead[] = [
   },
   {
     kicker: "ASIA - DIPLOMACY",
-    headline: "Trump in Manila; Xi, Trump, Putin to meet Thursday",
-    deck: "First Quad in two years at ASEAN; three-way summit set for Shenzhen",
+    headline: "TRUMP IN MANILA FOR FIRST QUAD IN TWO YEARS",
+    deck: "HE MEETS MODI, TAKAICHI AND ALBANESE AT ASEAN, THEN FLIES TO SHENZHEN FOR APEC",
     scene: lead3,
   },
 ];
@@ -989,7 +994,7 @@ const FEATURED: Featured[] = [
     num: 15,
     kicker: "ASIA - WEATHER",
     headline: "Cyclone Akvan takes aim at India's east coast",
-    deck: "Third Bay of Bengal storm in weeks; landfall expected around 20 Nov",
+    deck: "Third Bay of Bengal storm in weeks; landfall due 20 Nov",
     tint: [214, 228, 232],
     icon: iconCyclone,
   },
